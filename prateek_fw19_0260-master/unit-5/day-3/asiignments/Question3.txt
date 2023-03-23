@@ -1,0 +1,6 @@
+Q3) What is exception handling in java, Write the hierarchy of Exception class and, Mention some
+of the predefined Exception classes at least 5, and the reason when those exception class
+object is generated in our application.
+
+
+Answer: 

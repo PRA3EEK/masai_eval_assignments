@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+</body>
+</html>
+<script>
+  let amar = {
+    name : "Amar",
+    skill : "singer",
+    city : "Goa",
+    func : function(){
+     document.querySelector("h1").innerText = `${this.name} is a ${this.skill} and lives in ${this.city}`;
+    }
+  };
+  let Akbar ={
+    name : "Akbar",
+    skill : "Chef",
+    city : "Mumbai"
+  };
+  let Anthony = {
+    name : "Anthony",
+    skill : "Magician",
+    city : "Kashmir"
+  };
+   amar.func.call(Akbar);
+
+</script>

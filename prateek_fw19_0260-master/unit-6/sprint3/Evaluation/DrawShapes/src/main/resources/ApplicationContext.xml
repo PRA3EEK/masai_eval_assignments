@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="T" class="com.prateek.classes.Triangle">
+<property name="msg" value= "You have drawn Triangle"/>
+</bean>
+
+<bean id="C" class="com.prateek.classes.Circle">
+<property name="msg" value= "You have drawn Circle"/>
+</bean>
+
+<bean id="S" class="com.prateek.classes.Square">
+<property name="msg" value= "You have drawn Circle"/>
+</bean>
+
+<bean id="R" class="com.prateek.classes.Rectangle">
+<property name="msg" value= "You have drawn Rectangle"/>
+</bean>
+
+
+</beans>

@@ -1,0 +1,18 @@
+Q2/- Explain about IOC and Dependency Injection.
+Answer:
+
+IOC :->
+
+- In general when a class is dependent to an another class to perform it's own methods than it creates an object of its dependency class and calls 
+  
+  its methods this process is called dependency object creation in the main control.
+  
+- but when an external entity is responsible for injecting the dependency object to our spring bean class then it called that the control is inverted 
+  
+  to an external entity and this is called Inversion Of Control.
+  
+Dependency Injection:->
+
+Injection of the dependent object to the dependence class through an external entity is called as dependency injection.
+
+And we need to specify the values of the object in the applicationContainer.xm.

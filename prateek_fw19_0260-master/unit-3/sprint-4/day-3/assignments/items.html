@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="buttons">
+   <button onclick="lth()">Sort by price low to high</button>
+   <button onclick="htl()">Sort by price high to low</button>
+   <select name="" id="filter" onchange="filter()">
+    <option value="">Select filter</option>
+    <option value="5">Items with ratings 5</option>
+    <option value="4">Rating > 4</option>
+    <option value="3">Rating > 3</option>
+   </select>
+    </div>
+    <div id="items">
+
+    </div>
+</body>
+</html>
+<script>
+    let addtopage = () => {
+        fetch("http://127.0.0.1:3000/api/resdata").then((res)=>{
+          return res.json();
+        }).then((res)=>{
+           append(res);
+        console.log(res);
+        }).catch((rej)=>{
+            console.log(rej.message);
+        })
+    }
+    let lth = () => {
+        fetch("http://127.0.0.1:3000/api/resdata/?_sort=price&_order=asc").then((res)=>{
+          return res.json();
+        }).then((res)=>{
+           append(res);
+        console.log(res);
+        }).catch((rej)=>{
+            console.log(rej.message);
+        })
+    }
+    let htl = () => {
+        fetch("http://127.0.0.1:3000/api/resdata/?_sort=price&_order=desc").then((res)=>{
+          return res.json();
+        }).then((res)=>{
+           append(res);
+        console.log(res);
+        }).catch((rej)=>{
+            console.log(rej.message);
+        })
+    }
+    
+    let filter = () => {
+        let selectval = document.getElementById("filter");
+        let val = selectval.options[selectval.selectedIndex].value;
+        if(val==5){
+            fetch("http://127.0.0.1:3000/api/resdata/?ratings_gte=5").then((res)=>{
+             return res.json();
+            }).then((res)=>{
+                console.log(res)
+                append(res);
+            }).catch((rej)=>{
+                console.log(rej.message);
+            })
+        }else if(val==4){
+            fetch("http://127.0.0.1:3000/api/resdata/?ratings_gte=4").then((res)=>{
+             return res.json();
+            }).then((res)=>{
+                console.log(res)
+                append(res);
+            }).catch((rej)=>{
+                console.log(rej.message);
+            })
+        }else if(val == 3){
+            fetch("http://127.0.0.1:3000/api/resdata/?ratings_gte=3").then((res)=>{
+             return res.json();
+            }).then((res)=>{
+                console.log(res)
+                append(res);
+            }).catch((rej)=>{
+                console.log(rej.message);
+            })
+        }
+    }
+    
+   let append = (res) => {
+    document.getElementById("items").innerHTML = null;
+    res.forEach((el)=>{
+           let div = document.createElement("div");
+           let img = document.createElement("img");
+           img.src = el.image;
+           let h3 = document.createElement("h3");
+           h3.innerText = el.title;
+           let p1 = document.createElement("p");
+           p1.innerText = el.description;
+           let p2 = document.createElement("p");
+           p2.innerText = `$ ${el.price}`;
+           let p3 = document.createElement("p");
+           p3.innerText = `${el.ratings}/5`;
+           div.append(img,h3,p1,p2,p3);
+           document.getElementById("items").append(div);
+        })
+   };
+   addtopage();
+</script>

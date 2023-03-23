@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class queue{
+        constructor(){
+            this.length = 0;
+            this.queue = [];
+        }
+        enQueue(x){
+            this.queue[this.length] = x;
+            this.length ++; 
+            return this.queue;
+        }
+        deQueue(){
+            if(this.queue.length>0){
+                this.queue.splice(0,1);
+                this.length--;
+                return this.queue;
+            }else{
+                console.error("Underflow");
+              
+            }
+        }
+        enQueueThree(x,y,z){
+           this.queue[this.length] = x;
+           this.length++;
+           this.queue[this.length] = y;
+           this.length++;
+           this.queue[this.length] = z;
+           this.length++;
+           this.queue;
+        }
+        deQueueThree(){
+
+            if(this.queue.length>=3){
+                this.queue.splice(0,1);
+                this.length--;
+                this.queue.splice(0,1);
+                this.length--;
+                this.queue.splice(0,1);
+                this.length--;
+                return this.queue;
+            }else if(this.length>0&&this.length<3){
+               while(this.length>0&&this.length<3){
+                this.queue.splice(0,1);
+                this.length--;
+               }
+               return this.queue;
+            }else{
+                console.error("UnderFlow");
+            }
+        }
+    }
+    let Q1 = new queue;
+    // Q1.enqueue(50);
+    // Q1.enqueue(100);
+    // Q1.enqueue(200);
+    // Q1.enqueue(300);
+    // Q1.enqueue(400);
+      Q1.enQueueThree(10,20,50);
+      Q1.enQueueThree(10,20,50);
+      Q1.deQueueThree();
+      Q1.deQueue();
+      Q1.deQueueThree();
+      Q1.deQueueThree();
+
+    console.log(Q1);
+</script>

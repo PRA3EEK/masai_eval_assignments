@@ -1,0 +1,9 @@
+Q3/- What are the challenges of developing an Enterprise application?
+
+1. Changing Business Requirements
+2. Application Security and Control
+3. Complex API and Third-Party Integrations
+4. Data Storage and Analysis
+5. Development Time
+6. User Experience (UX)
+7. Departmental Silos

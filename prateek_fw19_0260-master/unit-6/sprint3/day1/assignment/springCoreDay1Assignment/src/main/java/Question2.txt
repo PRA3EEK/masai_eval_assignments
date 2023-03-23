@@ -1,0 +1,15 @@
+Q2/- What is the difference between an Application Server and a Web server?
+Answer:
+
+                         Web Server                                                                          Application server
+           
+     1. Web server is only has one container which is                                        1. Application server contains two containers 
+         
+        servelent container / web container                                                     servelent container as well as EJB container.
+        
+        
+     2. web servers can only be communicated using HTTP                                      2. application server can be communicated with any 
+        
+        protocol.                                                                               any kind of protocol.
+        
+     3. Webserver is a lightweight server.                                                    3. application server is a heavy weight server.

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+</body>
+</html>
+<script>
+// Create a custom Array constructor which will return an array object.
+// It should have a property size based on the length of arguments passed.
+// Add the arguments as key(index) value pairs in the Array object.
+// Use the “.prototype” property to add custom methods to the Array.
+// Add following methods :-
+// pop push forEach map filter reduce Bonus:
+
+// chaining for map, filter, reduce etc should be there. for e.g arr.map().filter().reduce()
+
+ let arr = new Array(45,90,54,72,81,80,1001);
+ 
+ 
+
+//  my own function to push elements in an array :->
+ Array.prototype.押す = function func(x){
+    this[this.length] = x;
+    return this;
+ }
+ arr.押す(50);
+   
+
+
+
+
+// my own function to pop elements from an array :->
+ Array.prototype.ポップ = function POPfunc(){
+  this.splice(this.length-1,1);
+  return this; 
+ }
+ arr.ポップ();
+
+
+
+
+
+// my own map function :->
+Array.prototype.地図 = function Mapfunc(func){
+  let A = [];
+  for(let i=0 ; i<this.length ; i++){
+    let x = func(this[i],i,this);
+    A.押す(x);
+    }
+    return A;
+}
+ let y = arr.地図(function(x){
+  return x*2;
+ });
+ console.log(y);
+
+
+// my own for-each loop :->
+Array.prototype.すべての = function(func){
+  for(let i=0  ; i<this.length ;  i++){
+    func(this[i],i,this);
+  }
+} 
+arr.すべての(function(el){
+  console.log(el/10);
+})
+ 
+
+
+
+// my own filter method :->
+Array.prototype.myFilter = function(func){
+  let A = [];
+  for(let i = 0 ; i < this.length ; i++){
+   let y = func(this[i],i,this);
+    if(y==true){
+      A.押す(this[i]);
+    }
+  }
+  return A
+}
+
+
+
+ let x = arr.myFilter(function(el){
+  return el%2 != 0;
+ })
+ console.log(x);
+
+
+
+
+// my own reduce method :->
+Array.prototype.myownReduce = function(func,a){
+  let inval = a
+  for(let i=0 ; i<this.length ; i++){
+    let b = func(inval,this[i]);
+     inval = b;
+  }
+   return inval;
+}
+
+
+
+let z = arr.myownReduce(function(a,b){
+  return a+b;
+},1);
+console.log(z);
+
+
+</script>

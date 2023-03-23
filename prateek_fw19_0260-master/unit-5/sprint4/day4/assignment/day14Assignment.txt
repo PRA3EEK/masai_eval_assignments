@@ -1,0 +1,24 @@
+Q1:
+update faculty set department = case department 
+when 'cs' then 'computer science'
+when 'ec' then 'electronics and communication'
+when 'hss' then 'humanities and social sciences'
+else department 
+end
+where department in ('cs', 'ec', 'hss');
+
+Q2:
+update faculty set vacation_hours = case
+   when working_hours<=40 then null
+   when working_hours>40 and working_hours<=80 then 20
+   when working_hours>80 and working_hours<=120 then 40
+else vacation_hours
+end;
+
+Q3:
+select * 
+if(vacation_hours is null, 'vacation not allowed', 'vacation allowed') as vacation status
+from faculty;
+
+select * from faculty
+IF(vacation_hours is null, 'vacation not allowed', 'vacation allowed') as vacation_status;

@@ -1,0 +1,14 @@
+Q1/- What is the J2EE, list out some of the Application Server names
+
+Answer:
+
+J2EE stands for java 2 platform enterprise edition which is a specification from SUN to develop platform independent enterprise applications which runs 
+
+on servers. It provides set of APIs and protocols which helps developers to create web-based applications. These APIs and protocols comes along with 
+
+the application servers.
+
+Some examples of application servers are:-
+
+ Apache Tomcat, Eclipse Jetty, Caucho Resin, and IBM WebSphere.
+

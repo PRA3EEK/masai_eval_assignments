@@ -1,0 +1,39 @@
+Q1. Explain Type casting and its types with examples?
+Answer: the process of converting one data type into another is 
+called as Type casting.
+There are two types of type casting:
+1. implicit type casting:
+   The process of converting lower data types into higher data types is 
+   called as implicit type casting.
+   Example:
+   //converting byte to an integer
+   package com.prateek;
+
+   public class Demo2 {
+      public static void main(String[] args) {
+    	byte a = 10;
+    	int b = a;
+    	System.out.println(b);
+       }
+    }
+2. Explicit type casting:
+  process of converting higher data types to lower data types.
+ Example:
+   //converting integer to byte :
+  package com.prateek;
+
+  public class Demo2 {
+      public static void main(String[] args) {
+    	  int a = 10;
+    	  byte b = (byte)a;
+    	  System.out.println(b);
+      }
+  }
+
+
+
+Q3. Explain the difference between local and instance variables?
+Answer: local variables are the variables which are declared in a class
+        but outside a method.
+        while local variables are the variables which are defined
+        inside a method. 

@@ -1,0 +1,12 @@
+Q1/- Explain the Entity class life-cycle.
+Answer:
+there are three stages in the life-cycle of an entity class
+1. first stage is known as transient stage:
+ if the object of an entity class is not associated with the entity manager object then the class object will 
+ be in the transient state.
+2. second stage is known as persistence stage:
+ if the object of the entity class is associated with the EM object which means if we call persist method, remove method, 
+ or find method on that object than the entity object is known to be in persistence stage.
+3. third stage is known as detached state:
+ When we class the close method of entity manager object after completing the task then the entity object known to be in 
+ detached stage.

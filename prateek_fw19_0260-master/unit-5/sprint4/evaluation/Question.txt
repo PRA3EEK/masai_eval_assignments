@@ -1,0 +1,99 @@
+Q3/- How many types of relationships exist among tables in the
+Database? Explain with some examples, and also mention how to
+establish these relationships among tables with examples.
+
+Answer: 
+  ->  There are three types of relationship among tables in the database which\
+      are shown below:-
+      1. one to one
+      2. one to many
+      3. many to many
+     
+     
+      one to one:
+      in one to one relation a unique element of a table can have relation 
+      with the unique element of another table and vice versa.
+      take a real life example of a relation ship between a person and his/her
+      driving liscence a person can have only one driving liscence and one 
+      driving liscence can only be owned by only one person.
+      to establish one to one relationship between two tables we need to two 
+      table with atleast one primary key column in each tables.
+      example:-
+      create table person(
+      person_id int primary key,
+      person_name varchar(20),
+      person_age int,
+      person_address varchar(20),
+      liscence_id int, 
+      foreign key (liscence_id) references liscence(lid)
+      );
+      
+      create table liscence(
+      lid int primary key,
+      person_id int.
+      foreign key (person_id) references person(person_id)       
+      );
+      
+      one to many:
+      in one to many relation a unique element of one table can have relation
+      with unique element from another table multple times. for example multiple
+      persons can works in a work department of a company
+      examle:
+      creating department table;->
+      
+      create table department(
+      did int primary key,
+      dname varchar(20)
+      );
+      
+      creating employee table:->
+      
+      create table employee(
+      empid int primary key,
+      ename varchar(20),
+      address varchar(30),
+      mobile varchar(10),
+      deptid int,
+      foreign key (deptid) references department (did)
+      );
+      // in the above example i am estabilishing one to many relationship 
+      // between department table employee table we can add multiple emplyees
+      // of different empid with same department/department id
+      
+      many to many:
+      in this type of relationship multiple unique elements of one table can 
+      relation with multiple unique elements form another table 
+      to establish this kind of relationship among tables we will always need 
+      the help of a third table.
+     Take a real life example of relationship of a student with courses
+     one student can enroll into multiple courses at the same time and one course
+     can be enrolled by many students.
+     
+     example:
+     //creating student table :->
+      create table student (
+    -> roll int primary key,
+    -> name varchar(12) not null,
+    -> address varchar(12) not null,
+    -> mobile varchar(10) not null
+    -> );
+    
+    //creating course table;->
+    create table course (
+    -> cid int primary key,
+    -> cname varchar(12) not null,
+    -> fee int not null,
+    -> duration varchar(12) not null
+    -> );
+    
+    // creating third helping table student_course
+    create table student_course(
+    -> student_roll int,
+    -> course_enrolled int,
+    -> foreign key(student_roll) references student(roll),
+    -> foreign key(course_enrolled) references course(cid)
+    -> );
+    // the helping table will keep the record of the student enrolled in the 
+        courses.
+    
+       

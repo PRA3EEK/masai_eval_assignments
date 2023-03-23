@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id ="d1" class="springCoreDay3Assignment.Department">
+  <constructor-arg value="1"/>
+  <constructor-arg value="Sales"/>
+  <constructor-arg value="Delhi"/>
+</bean>
+<bean id ="d2" class="springCoreDay3Assignment.Department">
+  <constructor-arg value="2"/>
+  <constructor-arg value="Accounts"/>
+  <constructor-arg value="Mumbai"/>
+</bean>
+<bean id ="d3" class="springCoreDay3Assignment.Department">
+  <constructor-arg value="3"/>
+  <constructor-arg value="Marketing"/>
+  <constructor-arg value="Bangalore"/>
+</bean>
+
+<bean id="e1" class="springCoreDay3Assignment.Employee">
+<constructor-arg value="1"/>
+<constructor-arg value="prateek"/>
+<constructor-arg value="Delhi"/>
+<constructor-arg value="50000"/>
+</bean>
+
+<bean id="e2" class="springCoreDay3Assignment.Employee">
+<constructor-arg value="2"/>
+<constructor-arg value="pratham"/>
+<constructor-arg value="Delhi"/>
+<constructor-arg value="45000"/>
+</bean>
+
+<bean id="e3" class="springCoreDay3Assignment.Employee">
+<constructor-arg value="3"/>
+<constructor-arg value="aniket"/>
+<constructor-arg value="Delhi"/>
+<constructor-arg value="70000"/>
+</bean>
+
+
+<bean id="demo" class="springCoreDay3Assignment.Demo" init-method="myInit" destroy-method="cleanUp">
+ 
+ <property name="theMap">
+   
+   <map>
+     
+     <entry key-ref="d1" value-ref = "e1"/>
+          <entry key-ref="d2" value-ref = "e2"/>
+               <entry key-ref="d3" value-ref = "e3"/>
+     
+     
+   </map>
+   
+ </property>
+
+</bean>
+
+<bean id="a" class="examples.A" autowire="byName"/>
+
+<bean id="b" class="examples.B">
+
+<property name="num" value="2"/>
+<property name="name" value="prateek chauhan"/>
+
+</bean>
+ 
+ 
+
+</beans>

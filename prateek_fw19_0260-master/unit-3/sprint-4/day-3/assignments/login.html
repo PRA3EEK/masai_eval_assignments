@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="">Username</label><br>
+        <input type="text" id="username" placeholder="Username"><br>
+        <label for="">Password</label><br>
+        <input type="text" placeholder="Password" id="password">
+        <input type="submit" value="Log In">
+    </form>
+    <button onclick="logout()">Sign Out</button>
+</body>
+</html>
+<script>
+  let login = JSON.parse(localStorage.getItem("logindata")) || null;
+  
+    let form = document.querySelector("form");
+    form.addEventListener("submit",(e)=>{
+      e.preventDefault();
+      if(login){
+        alert("You are already logged in!")
+      }else{
+        check();
+        console.log("tatti")
+      }
+     
+    })
+    let check = () => {
+      let Udata = {
+        password : document.getElementById("password").value,
+        username : document.getElementById("username").value
+      }
+   
+      fetch("https://masai-api-mocker.herokuapp.com/auth/login",{
+        method : "POST",
+        body : JSON.stringify(Udata),
+        headers : {
+            "Content-Type":"application/json"
+        }
+      }).then(function(res){
+        return res.json();
+      }).then(function(res){
+      console.log(res);
+      getdata(res, Udata);
+      }).catch(function(rej){
+        alert("User don't exists!")
+      })
+    }
+
+    getdata = ({token},{username}) => {
+      let url = `https://masai-api-mocker.herokuapp.com/user/${username}` 
+      fetch(url,{
+        method : "GET",
+        headers : {
+          Authorization : `Bearer ${token}`
+        }
+      }).then(function(res){
+        return res.json();
+      }).then(function(res){
+        console.log(res.description);
+        localStorage.setItem("logindata",JSON.stringify(res));
+        if(res.description.toLowerCase()=="user"){
+          window.location.href = "items.html"
+        }else{
+          window.location.href = "admin1.html"
+        }
+      }).catch(function(rej){
+        console.log(rej.message);
+      })
+    }
+
+    let logout = () => {
+      localStorage.removeItem("logindata");
+    }
+</script>

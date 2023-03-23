@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #8aaae3 ;
+ }
+#cont>:nth-child(1){
+ display: grid;
+ justify-content: center;
+ background-color: 
+#232e44;
+width: 30%;
+margin: auto;
+border-radius: 20px;
+margin-top: 30px;
+
+}
+#cont>:nth-child(2){
+ text-align: center;
+
+ padding: 20px 0;
+ font-size: 25px;
+ font-weight: 600;
+ font-family: sans-serif;
+ letter-spacing: 1.5px;
+}
+#cont>:nth-child(2)>h3{
+ font-size: 40px;
+}

@@ -1,0 +1,7 @@
+Question 1: Explain difference between PriorityQueue() and LinkedList().
+Answer: Both priority queue and linked list implements queue data structure in java but there are some 
+        differences in both of them. when we add and element to priority the class of that element must have
+        implemented compareTo method form comparable interface because in priority the the elements will 
+        get the priority on the basis of compareTo method which we have overridden and the priority queue will 
+        be sorted only the basis of that compareTo method only and another difference id that the order in 
+        which we have added the elements in the priority queue will not be preserved.  

@@ -1,0 +1,27 @@
+Q3) Change this block of code according to the given instruction and explain the output?
+
+public class Demo {
+     public static void main(String[] args) {
+           int a = 64;
+           int b = 70;
+           byte c = a+b;//typecast (a+b) to byte
+           System.out.println(c){
+    }
+ }
+ Answer : In the above code we are adding to int values as bytes, as we know int is bigger than byte and we are
+          converting a bigger value to a smaller value this type of casting is called as explicit type casting 
+          and in explicit type casting we need to downcaste the higher value to lower value in order to get a 
+          desired output like shown in below code :
+          public class Demo {
+             public static void main(String[] args) {
+               int a = 64;
+               int b = 70;
+               byte c = (byte)(a+b);//typecast (a+b) to byte
+               System.out.println(c);
+         }
+      }
+         In the above case we are 64 and 70 as integers and the output should be 134 but when we convert the 
+         sum in byte we found that the output is -122 this is because the range of byte value is from -128 to 127
+         . In the above code clearly the output is exceeding the range of a byte so the value goes back into the 
+         cycle and gives us the value -122.
+          

@@ -1,0 +1,11 @@
+Q4) Explain the difference between overloading and overriding methods with an example?
+Answer. 
+1. Overriding implements Runtime Polymorphism whereas Overloading implements Compile time polymorphism.
+2. The method Overriding occurs between superclass and subclass. Overloading occurs between the methods in the 
+   same class.
+3. Overriding methods have the same signature i.e. same name and method arguments. Overloaded method names are 
+   the same but the parameters are different.
+4. With Overloading, the method to call is determined at the compile-time. With overriding, the method call is 
+   determined at the runtime based on the object type.
+5. If overriding breaks, it can cause serious issues in our program because the effect will be visible at 
+   runtime. Whereas if overloading breaks, the compile-time error will come and it’s easy to fix.

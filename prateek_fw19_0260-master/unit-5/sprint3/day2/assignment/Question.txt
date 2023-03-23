@@ -1,0 +1,12 @@
+Q2/- What’s the difference between class lock and object lock?
+A :
+        Class lock                                                 object lock
+   
+   1.Class locks are used by the static                     1. Object locks are used by the synchronized                   
+     synchronized methods of a class.                          method of a class object.
+   
+   2.There is only one class lock for                       2. Every object of a class has its own ocject 
+     a class.                                                  lock.
+         
+   3.It is used when you want a static                      3. It is used when we want a non-static method 
+     method of class to be synchronized.                       of a class to be synchronized.

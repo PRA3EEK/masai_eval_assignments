@@ -1,0 +1,5 @@
+Q1) Explain about the Marker interface?
+Answer : A marker interface in java is an interface which as no methods or variables inside it, It is an empty
+         interface and it is used as an identity for a class. It provides runtime type information of an 
+         object so the compiler and JVM has additional information about the object. A marker interface is also
+         called the tag interface.

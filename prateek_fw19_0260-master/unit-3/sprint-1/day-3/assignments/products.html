@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product{
+            display: grid;
+            grid-template-columns: repeat(3,30%);
+            justify-content: space-around;
+        }
+        .product>img{
+            width: 100%;
+            height: 500px;
+        }
+        body>div:nth-child(1){
+            display: flex;
+            justify-content: space-around;
+
+        }
+        body>div:nth-child(1)>a{
+            text-decoration: none;
+            color: black;
+        }
+        #sold{
+            color: white;
+            cursor: pointer;
+        }
+        #remove{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="admin.html"><h1>Add products</h1></a>
+        <a href="products.html"><h1>Products</h1></a>
+    </div>
+    <div>
+
+    </div>
+    <div class="product">
+     
+    </div>
+</body>
+</html>
+<script>
+    //  let name = form.name.value;
+    // let ctg  = form.catagory.value;
+    // let imgURl = form.image.value;
+    // let prc = form.price.value;
+    // let gender = form.gender.value;
+    // let sld = form.sold.value;
+    //  this.name = n;
+    //   this.ctg = c;
+    //   this.url = i;
+    //   this.price = p;
+    //   this.gender = g;
+    //   this.sold = b;
+    let prodDAtafrmLS = JSON.parse(localStorage.getItem("Products")) || [];
+    prodDAtafrmLS.forEach(function(el,indx){
+        
+        // let name = el.name;
+        // let ctg = el.ctg;
+        // let gend = el.gender;
+        // let prc = el.price;
+        // let img = el.url;
+        // let sold = el.sold;
+
+        let div = document.createElement("div");
+        let image = document.createElement("img");
+        image.setAttribute("src",el.url);
+        let h3 = document.createElement("h3");
+        h3.innerText = el.name;
+        let p =  document.createElement("p");
+        p.innerText = el.ctg
+        let p1 =  document.createElement("p");
+        p1.innerText = el.gender
+        let p2 =  document.createElement("p");
+        p2.innerText = el.price;
+        let btn = document.createElement("button");
+        btn.addEventListener("click",function(){
+           remove(el,indx);
+        })
+        btn.innerText = "REMOVE"
+        btn.setAttribute("id","remove")
+        let btn1= document.createElement("button");
+        btn1.setAttribute("id","sold");
+        btn1.addEventListener("click",function(){
+            change(el,indx);
+        })
+        if(el.sold == "true"){
+            btn1.innerText = "SOLD"
+            btn1.style.backgroundColor = "red"
+        }else if(el.sold == "false"){
+            btn1.innerText = "SOLD"
+            btn1.style.backgroundColor = "green";
+        }
+     document.querySelector(".product").append(div);
+        div.append(image,h3,p,p1,p1,btn,btn1);
+        
+
+    })
+
+// function to remove product from product page
+    function remove(el,indx){
+        prodDAtafrmLS.splice(indx,1);
+        localStorage.setItem("Products",JSON.stringify(prodDAtafrmLS));
+        window.location.reload();
+    }
+
+// function to change data in local storage
+    function change(el,indx){
+        if(el.sold == "true"){
+            prodDAtafrmLS[indx].sold = "false";
+        localStorage.setItem("Products",JSON.stringify(prodDAtafrmLS));
+        window.location.reload();
+        }else if(el.sold == "false"){
+            prodDAtafrmLS[indx].sold = "true";
+        localStorage.setItem("Products",JSON.stringify(prodDAtafrmLS));
+        window.location.reload();
+        }
+    }
+</script>

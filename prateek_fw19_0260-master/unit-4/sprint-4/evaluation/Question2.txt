@@ -1,0 +1,7 @@
+Q2) Explain about Hashcode and Equals Method.
+Answer : 
+
+     Hashcode and equals method both belongs to java.lang.Object class they both are interrelated to each other
+     because if we call hashcode method on two objects which are equal to each other according to the equals 
+     method then the hashcode method will return the same hash value, else if both the objects are not equal 
+     according to the equals method then the hashcode method will return different hash values. 

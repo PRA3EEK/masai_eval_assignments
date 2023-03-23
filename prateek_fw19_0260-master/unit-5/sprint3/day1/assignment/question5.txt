@@ -1,0 +1,56 @@
+Q5) Differentiate between the Thread class and Runnable interface for creating a
+Thread?
+A : Thread is a class which is used to create a new Thread in java. Thread class contains multiple methods 
+    like setName() getName() setPriority() getPriority() and this class also has multiple overloaded thread 
+    class parameterized constructors. If we need to create a new thread using thread class than we just need 
+    to initialize the child class object of the child class of the Thread class and call start() 
+    method on it. The disadvantage of using Thread class directly to create a new thread is the class which 
+    extends the Thread class cannot extends another class so it kills the biggest advantage of inheritance so
+    we use runnable interface to create a new thread.
+    class ThreadA extends Thread {
+    
+      public void run () {
+      //function we want to perform 
+      }
+      
+    }
+    
+    class Main {
+     
+       public static void main (String[] args) {
+     
+        ThreadA ta = new ThreadA ();
+        ta.start()//here the new thread has been started;
+       
+       }
+       
+    }
+    
+    Runnable is an interface which is also used to create an new thread in our Java program but we cannot 
+    create the thread by just calling start method on its implementation class. Runnable is a functional 
+    interface so it only contains one abstract method which is public abstract void run();. The implementation
+    class of Runnable interface needs to override this abstract method. To create a new thread we need to pass 
+    the object of implementation class object to a new thread class object and call the start method on that 
+    thread class object.
+    
+    class NewThread implements Runnable{
+    
+    public void run() {
+    
+    //write the functionality you want to execute here.
+    
+    }
+    
+    }
+    
+      class Main {
+     
+       public static void main (String[] args) {
+     
+        NewThread nt = new NewThread();
+        Thread t = new Thread(nt);
+        t.start() // here the new thread is strated.
+       
+       }
+       
+    }

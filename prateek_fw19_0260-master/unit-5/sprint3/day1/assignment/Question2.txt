@@ -1,0 +1,7 @@
+Q2) What are the benefits of using Multithreading?
+1. Multithreading allows the execution of multiple parts of a program at the same time.
+   These parts are known as threads and are lightweight processes available within the process.
+   So multithreading leads to maximum utilization of the CPU by multitasking.
+2. Multi threaded appliations are fast.
+3. If our main thread encounters an error than other threads will continue to do their work as the threads are 
+   independent so the application will be executed even though the main thread has encountered an error.

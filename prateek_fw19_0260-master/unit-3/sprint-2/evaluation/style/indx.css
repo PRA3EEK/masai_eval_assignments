@@ -1,0 +1,16 @@
+#items{
+    display: grid;
+    grid-template-columns: repeat(7,11%);
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+  #items>div>img{
+    width: 100%;
+  }
+  #navbar{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+  margin-right: 0;
+
+  }

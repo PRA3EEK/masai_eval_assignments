@@ -1,0 +1,8 @@
+Q1) What do you mean by Multithreading? Why is it important?
+A : Multithreading in java is meant by using more than one threads to implement our java program. Multi threads
+    helps our program to execute faster as multiple threads are working on completing it. In a single threaded 
+    application the program runs conventionaly line by line while using multi threads main thread divides in 
+    multiple threads and execute the program at the same time so the program gets executed faster.
+    Suppose we have an application where user checks the availability of seats in a train, In this situation if
+    our application is single threaded than it is not possible for multiple users to access the application 
+    at the same time so it becomes important to use multithreading. 

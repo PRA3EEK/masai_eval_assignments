@@ -1,0 +1,101 @@
+Q1) a) Why String is immutable in java and what is the difference between String and String Builder? And Write
+some of the methods of String class at least 5 with example.
+Answer:  
+String is immutable because java is a secure language one string object is created in the memory then we cannot
+modify it to modify the string object we should use sting Builder it allows us to modify the string object.
+some methods of Strings are :
+1.  .concat();
+   example:
+   package sprint2evaluation;
+
+public class Strings {
+	static String S = new String("prateek");
+	static String S2 = S.concat("chauhan");
+  public static void main (String[] args) {
+	  System.out.println(S);
+	  System.out.println(S2);
+  }
+} 
+ 
+2.  .toUpperCase();
+   example:
+   package sprint2evaluation;
+
+public class Strings {
+	static String S = new String("prateek");
+	static String S2 = S.toUpperCase();
+  public static void main (String[] args) {
+	  System.out.println(S);
+	  System.out.println(S2);
+  }
+} 
+ 
+3.  .toLowerCase();
+   example:
+   package sprint2evaluation;
+
+public class Strings {
+	static String S = new String("PRATEEK");
+	static String S2 = S.toLowerCase();
+  public static void main (String[] args) {
+	  System.out.println(S);
+	  System.out.println(S2);
+  }
+} 
+   
+    
+4.  .contains();
+
+    example:
+    package sprint2evaluation;
+
+public class Strings {
+	static String S = new String("PRATEEK");
+
+  public static void main (String[] args) {
+	  System.out.println(S.contains("TEEK"));
+	  
+  }
+} 
+    
+    
+5.  .equals();
+   example: 
+   package sprint2evaluation;
+
+public class Strings {
+	static String S = new String("PRATEEK");
+
+  public static void main (String[] args) {
+	  System.out.println(S.equals("PRATEEK"));
+	  
+  }
+} 
+
+
+
+
+Question 2:-   b) What is the difference between equals method and == operator in java? And what will be
+ the output of the
+following code snippets and giving proper explanation.
+Code snippet 1 >
+String s1 = new String("abc");
+String s2 = new String("abc");
+System.out.println(s1.equals(s2));
+Code snippet 2 >
+StringBuilder sb1 = new StringBuilder("abc");
+StringBuilder sb2 = new StringBuilder("abc");
+System.out.println(sb1.equals(sb2));
+Code snippet 3 >
+String s1 = new String("abc");
+String s2 = new String("abc");
+System.out.println(s1==s2);
+
+Answer: 
+the difference between the equals method and == is simply that equals compare the reference of the object 
+like their memory address. while == compare the value of the variable.
+
+output of snippet one will be true as it is comparing the string values and they are equal.
+output of snippet one will be true as it is again comparing the string values and they are again equal.
+In snippet 3 it is comparing the addresses of the object created, the output will be true as the strings 
+made by both the objects are equal so address of the location of s1 will also be given to s2.

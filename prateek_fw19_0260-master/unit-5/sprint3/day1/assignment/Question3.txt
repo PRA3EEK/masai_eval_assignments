@@ -1,0 +1,10 @@
+Q3) Differentiate between process and thread.
+ process: A process is basically a program which is being run. Process needs more time to execute. Process 
+ can create small processes which are called child processes or sub processes. A process is isolated as it 
+ does not share its memory with any other processes so multiple processes needs more memory space. A process 
+ takes more time to terminate.
+ 
+ Thread: Thread is the segment of a process which means a process can have multiple threads and these 
+ multiple threads are contained within a process. A thread has three states: Running, Ready, and Blocked. 
+ The thread takes less time to terminate as compared to the process but unlike the process, threads do not 
+ isolate. 

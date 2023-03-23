@@ -1,0 +1,6 @@
+Q5/- What is the difference between the sleep and wait method?
+            wait()	                                                    sleep()
+The wait() method releases the lock.	                     The sleep() method doesn't release the lock.
+It is a method of Object class	                             It is a method of Thread class
+It is the non-static method	                                 It is the static method
+It should be notified by notify() or notifyAll() methods	 After the specified amount of time, sleep is completed.

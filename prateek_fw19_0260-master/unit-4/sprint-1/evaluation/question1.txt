@@ -1,0 +1,4 @@
+Q1) Explain why Java is platform independent ?
+Answer: Java works in JDK java development kit which contains JRE Java runtime environment which converts our
+        source code to bytecode and any JVM Java virtual machine can run that byte code and give us the output 
+        that's why Java is platform independent.

@@ -1,0 +1,105 @@
+Q3/- What do you mean by a Race condition, How to solve a race condition, give a proper
+example
+Answer : a race condition is condition where a part of a program where shared memory is accessed is executed by 
+   two or more threads at a same time than we get an unexpected output.
+   example:
+   // first thread
+   class ThreadA extends Thread{
+    Common c;
+    
+    public ThreadA (Common a) {
+     this.c = a;
+    }
+    
+    public void run () {
+       c.count();
+    }
+   
+   }
+   // second thread 
+   class ThreadB extends Thread{
+    Common c;
+    
+    public ThreadB (Common a) {
+     this.c = a;    
+    }
+    
+    public void run () {
+       c.count();
+    }
+   
+   }
+   // common class 
+   class Common () {
+   
+     public void count() {
+      for(int i=1 ; i<=10 ; i++){
+      System.out.println(i);
+     }
+    
+   }
+   //main class
+   class Main {
+    public static void main (String[] args) {
+    
+    Common c = new Common();
+    ThreadA ta = new ThreadA(c);
+    ThreadB tb = new ThreadB(c);
+    
+    ta.start();
+    tb.start();
+    }
+   }
+   // in the above example the output is 
+   1
+   2
+   3
+   4
+   5
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   6
+   7
+   8
+   9
+   10
+   10   
+  // but because of the race condition we are getting the unexpected output so to resolve the issue we have to 
+   //  make common method synchronized or wrap the code in synchronized block so that only one thread will execute
+     //the common method first than only other thread will execute it.
+     
+    like this :-
+     //   public synchronized void count() {
+     //    for(int i=1 ; i<=10 ; i++) {
+     //       System.out.println(i);
+    //    }
+   
+     //  }
+     now we will get the output:
+         1
+         2
+         3
+         4
+         5
+         6
+         7
+         8
+         9
+         10
+         1
+         2
+         3
+         4
+         5
+         6
+         7
+         8
+         9
+         10

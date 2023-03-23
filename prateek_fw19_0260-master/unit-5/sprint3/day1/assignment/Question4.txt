@@ -1,0 +1,10 @@
+Q4) What are the different states of a thread, or what is thread lifecycle?
+A: In java every thread executes the program and dies after completing its task so every thread has its 
+   life cycle. Life cycle of a thread is reffered to the different states it goes through while executing a
+   program.
+   Thread always exists in any of the following states:
+   1. New state
+   2. Runnable state
+   3. Running state
+   4. Blocked state
+   5. Dead state

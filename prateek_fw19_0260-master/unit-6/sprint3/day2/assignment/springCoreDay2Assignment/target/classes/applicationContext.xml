@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="s" class="springCoreDay2Assignment.Student">
+ <constructor-arg value ="4"/>
+ <constructor-arg value="prateek chauhan"/>
+ <constructor-arg value ="450"/>
+
+</bean>
+<bean id="c" class="springCoreDay2Assignment.College">
+  <property name="college_name" value="DU"/>
+  <property name="student" ref="s"/>
+  <property name="college_address" value="New Delhi"/>
+</bean>
+</beans>

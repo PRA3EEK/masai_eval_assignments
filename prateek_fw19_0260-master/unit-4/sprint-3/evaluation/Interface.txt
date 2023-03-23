@@ -1,0 +1,14 @@
+a) Does the below code compile successfully? If not, why?
+interface A{
+int i = 111;
+}
+class B implements A{
+void methodB(){
+i = 222;
+}
+}
+
+
+Answer : The above code will not compile successfully as the interface A contains an initialized variable i
+         But in java interface there should be no initialized variable, method/function because an interface 
+         variable function/method are always supposed to be overriden by its implemented class.

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="">Name</label><br>
+        <input type="text" id="name" placeholder="Name"><br>
+        <label for="">Enter Email</label><br>
+        <input type="text" id="email" placeholder="Email"><br>
+        <label for="">Create Password</label><br>
+        <input type="text" id="password" placeholder="Password"><br>
+        <label for="">Username</label><br>
+        <input type="text" id="username" placeholder="Username"><br>
+        <label for="">Mobile Number</label><br>
+        <input type="text" id="mobile" placeholder="Mobile"><br>
+        <label for="">Do you want you join as an User or Admin</label><br>
+        <input type="text" id="description" placeholder="User / Admin"><br>
+        <input type="submit" value="Sign up" >
+    </form>
+   
+</body>
+</html>
+<script>
+  
+  let form = document.querySelector("form");
+  form.addEventListener("submit",(event)=>{
+    event.preventDefault();
+    add();
+  })
+    function add(event){
+        let des = document.getElementById("description").value;
+       if(des.toLowerCase()=="user" || des.toLowerCase()=="admin"){
+        let data = {
+            name : document.getElementById("name").value,
+            email : document.getElementById("email").value,
+            password : document.getElementById("password").value,
+            username : document.getElementById("username").value,
+           mobile: document.getElementById("mobile").value,
+            description : document.getElementById("description").value,
+        };
+        data = JSON.stringify(data);
+        let url = "https://masai-api-mocker.herokuapp.com/auth/register";
+
+           fetch(url,{
+            method : "POST",
+            body : data,
+            headers : {
+                "Content-Type":"application/json",
+            }
+        }).then(function(res){
+            return res.json();
+        }).then(function(res){
+            console.log(res);
+            if(res.error == true){
+                alert("Username already exists!")
+            }else{
+                alert("Registration successful");
+                window.location.href = "login.html";
+            }
+        }).catch(function(rej){
+           console.log(rej);
+        })
+       }else{
+        alert("Please enter a valid user type");
+       }
+    }
+</script>

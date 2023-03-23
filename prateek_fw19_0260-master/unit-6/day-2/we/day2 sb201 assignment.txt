@@ -1,0 +1,89 @@
+Q1-> Explain Layared Architecture in Business application
+Answer:
+All business applications has three basic applications:
+
+1. Storing the business data in easly retrieval and secure manner
+
+2. Processing by applying different logics on the data according to the business rules
+
+3. Presenting the data in user readable format in user friendly manner
+
+Q2-> limitation of JDBC based persistence logic over JPA
+1. jdbc cant store the data in the form of java objects so we to convert the data present in the object in simplest form
+   to store them in our jdbc.
+
+2. We need to write the same code again and again to get the connection to our db in differnt classes except the queries because theyy are 
+   different for different requirments.
+
+3. jdbc code is db dependent which means the queries we write for one database that logic is not 100% portable across the different db softwares
+
+4. jdbc code throw a lot of checked exceptions so developers need handle those exceptions.
+
+5. if we want some data from the db it comes in a form of result set object and to get the data from the result set we need to know the 
+   structures of the table in which the data is stored.
+
+
+Q3-> Differentiate between Hibernate and JPA
+Answer:
+-JPA stands for java persistance api and it is not an implementation it is just a specification provided by java to work with different ORM softwares
+
+ but Hibernate is the implementation of all the JPA guidlines and it is a framework.
+
+-Hibernate provides its own api to develop orm based persistence logic but if we use those apis than our application will become vendor lock which means 
+ 
+ we cannot port our application across different ORm softwares.
+
+-but when we use JPA api than our application can use any orm software.
+ 
+-hibernate api comes in the form org.hibernate and the JPA api comes belongs to javax.persistence.
+
+
+Q4 Explain the properties of JPA(Java Persistence API)
+
+Answer:
+
+Mapping Java objects to database tables and vice versa is called Object-relational mapping (ORM). The Java Persistence API (JPA) is one possible approach to ORM. 
+
+Via JPA the developer can map, store, update and retrieve data from relational databases to Java objects and vice versa. JPA is a specification and several implementations 
+
+are available. Popular implementations are Hibernate, EclipseLink and Apache OpenJPA. The reference implementation of JPA is EclipseLink.
+
+JPA permits the developer to work directly with objects rather than with SQL statements. The JPA implementation is typically called persistence provider.
+
+Q5 Why to use ORM and What are the benefits of ORM?
+
+Answer:
+
+1.it can persist/store java obj directly into the DB without converting them to their simplest form.
+
+2.it supports POJO and POJI model
+
+3.it is a lightweight software because to excute the ORM based application there is no need to install any kind of servers.
+
+4.ORM persistance logic is DB independent. it is portable accross multiple DB softwares.
+
+5.prevent the developers from boiler plate code coding to perform CRUD operarions.
+
+6.it generates fine tuned sql statements internally that improves the performance.
+
+7.it provides caching mechanism (maintaing one local copy to enhance the performance)
+
+8.it provides implicit connection pooling.
+
+9.exception handling is optional becoz it throws unchecked exceptions.
+
+10.it has a special Query language called JPQL (JPA query language ) that totally depends upon the '
+objects.
+
+Q6 what is Core Components of Hibernate explain
+
+Answer:
+- hibernate is a java framework that simplifies the development of java application to interact with the database.
+
+- it is an ORM tool.
+
+- it works with POJO and POJI classes.
+
+- Any type of aplications can be build using hibernate framework.
+
+- 

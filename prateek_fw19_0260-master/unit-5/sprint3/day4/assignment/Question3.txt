@@ -1,0 +1,3 @@
+Q3/- What is the Serialization and deseiralization in Java
+A: Serialization is a proccess of converting a serializable class object into a stream of byte which we 
+   can than save it in a text file or any database the reverse process is called the deserialization in java.

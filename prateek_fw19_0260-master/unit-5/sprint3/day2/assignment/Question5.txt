@@ -1,0 +1,16 @@
+Q5/- What is the Difference between the sleep and join method .
+A: sleep method is used to make a thread sleep/wait for a perticular time and we can give that in milliseconds 
+   while we call the sleep method. like Thread.sleep(1000); the thread which will encounter this line or the thread
+   object which we will call this method on will wait or pause for 1 second or 1000 millisecond before
+   proceeding further and execute the remaining method. If we have small code which has to be executed and we 
+   the given time to the sleep method is more then the thread will wait for extra seconds which is not nessecary 
+   so our application will become slow. In that case we should use join method will join the two threads and 
+   make them work one by one and the second thread will wait only for the time which is required by the first
+   thread to execute the code. take an example of two threads:-
+   
+   first thread be t1 and second be t2;
+   Thread t1 = new Thread();
+   Thread t2 = new Thread();
+   
+   and we call the join method on t1 like t1.join() then the t2 thread will only start after the first thread 
+   completes its task.

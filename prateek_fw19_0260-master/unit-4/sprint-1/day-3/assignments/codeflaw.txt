@@ -1,0 +1,27 @@
+Q4) Explain why the following block of code will give a compile time error?
+public class Main {
+public static void main(String[] args) {
+float f=3.3;
+System.out.println(f);
+}
+}
+Also rectify this code.
+
+Answer : The above code will give a compile time error because we are trying to define a decimal number as 
+       float but in java all the decimal numbers are treated as double by default, and double is a 
+       bigger primitive data type so in order to define a double as float we need to down caste the double 
+       value to float.
+       Below is the rectified code :-
+       
+       public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		float f= (float)(3.3);
+		System.out.println(f);
+	}
+
+}
+       
+       
+        

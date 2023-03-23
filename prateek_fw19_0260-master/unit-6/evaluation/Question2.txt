@@ -1,0 +1,28 @@
+● Explain difference between JPA and Hibernate.
+● Explain the Life-cycle of Entity class with example.
+
+answer1:
+
+-JPA (Java persistence API) is a specification and Hibernate is the implementation build upon the guidlines of 
+ JPA.
+
+-JPA belongs to javax.persitence api while the api of Hibernate ORM is org.hibernate.
+
+-If we use JPA in our application then our application can be run using any ORM which means our application 
+ will become ORM independent while if we use HIbernate api then the application can only be used using Hibernate 
+ only.
+ 
+Answer2:
+
+There are three stages of an entity class;
+first-(Transient stage)
+In this stage the object of entity class is not associated with any entity manager object to perform operations
+in this stage the entity class object is ready to be used but is not being used.
+
+second-(persistence stage)
+In this stage the entity class object is in the use or being used with the entity manager class object to perform 
+operations in the database.
+
+third/last-stage(Detach stage)
+In this stage the entity class object is again not in use as the operation has been completely done and 
+the entity manager class we created is being successfully closed. 

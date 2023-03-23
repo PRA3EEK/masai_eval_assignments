@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            letter-spacing: 2px;
+        }
+          #nav{
+            display: grid;
+            grid-template-columns: repeat(2,50%);
+            justify-content: space-around;
+            height: 100px;
+            font-size: 50px;
+            background-color: crimson;
+            color: white;
+        }
+        #students{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #nav>div:nth-child(2){
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #nav>div:nth-child(2)>a{
+          text-decoration: none;
+          color: white;
+        }
+        table{
+            margin: auto;
+            width: 80%;
+        }
+        table>tbody>tr>td{
+            text-align: center;
+        }
+       
+        thead{
+            height: 70px;
+        }
+        thead>tr{
+            background-color: crimson;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="students">
+        </div>
+        <div>
+            <a href="studentdataportal.html">HOME</a>
+        </div>
+        
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>COURSE</th>
+                <th>UNIT</th>
+                <th>IMAGE_URL</th>
+                <th>BATCH</th>
+            </tr>
+        </thead>
+        <tbody>
+             
+        </tbody>
+    </table>
+</body>
+</html>
+<script>
+    let pagedatafrmLS = JSON.parse(localStorage.getItem("studentsData")) || [];
+   
+
+    pagedatafrmLS.forEach(function(el,indx){
+    let row = document.createElement("tr");
+    let d1 = document.createElement("td");
+    d1.innerText = el.name;
+    let d2 = document.createElement("td");
+    d2.innerText = el.course;
+    let d3 = document.createElement("td");
+    d3.innerText = el.unit;
+    let d4 = document.createElement("td");
+    let img = document.createElement("img");
+    img.setAttribute("src",el.image);
+    d4.append(img);
+    let d5 = document.createElement("td");
+    d5.innerText = el.batch;
+    let d6 = document.createElement("td");
+    d6.style.backgroundColor = "crimson";
+    d6.style.color = "white";
+    d6.style.cursor = "pointer";
+    d6.innerText =  "Remove";
+    d6.addEventListener("click",function(){
+        remove(el,indx);
+    });
+    row.append(d1,d2,d3,d4,d5,d6);
+    document.querySelector("tbody").append(row);
+    })
+    
+    let trashdatafrmLS = JSON.parse(localStorage.getItem("trash")) || [];
+    function remove(el,indx){
+     let x = pagedatafrmLS.splice(indx,1);
+     localStorage.setItem("studentsData",JSON.stringify(pagedatafrmLS));
+     trashdatafrmLS.push(x[0]);
+     localStorage.setItem("trash",JSON.stringify(trashdatafrmLS));
+     window.location.reload();
+    }
+
+
+</script>

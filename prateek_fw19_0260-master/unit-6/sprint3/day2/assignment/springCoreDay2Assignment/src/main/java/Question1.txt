@@ -1,0 +1,29 @@
+Q/- What is a Spring Bean and Spring container? How to activate the Spring Container in our
+application.
+
+Answer:
+
+Spring bean:-
+- A spring bean class is simply a java class which is associated with the spring container of spring framework in the other words it is simply a pojo class.
+
+Spring Container:-
+- A spring container is the core of spring framework. It is not like the j2EE container i.e. (EJB container, Web container) so we don't need to install 
+  any kind of server. It is a lightweight container unlike j2ee container so it can be activated in any kind of java application.
+  
+- The main functions of spring container are:-
+
+  1. Life Cycle Management of Spring bean class:
+    
+     It manages the life cycle of the Spring bean class without implementing any interface in our spring bean class.
+  
+  2. Dependency resolution :
+   
+     It injects the values of the dependencies present in our spring bean classes according to the configuration defined in the applicationContainer.xml file
+     
+     or by using annotations.
+     
+     ================================================================================================================================================
+  
+- To Activate our spring container in our application first we need to create the applicationContext.xml in src/main/resources folder and then instantiate
+   
+  ClassPathXmlApplicationContext by giving the name of the our applicationContext file we created earlier as a parameter. 

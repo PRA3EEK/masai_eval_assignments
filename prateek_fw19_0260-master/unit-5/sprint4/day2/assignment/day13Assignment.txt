@@ -1,0 +1,28 @@
+day13Assignment 
+Question 1
+Answer:
+--> select c.email, count(o.customer_id) order_count from orders o
+--> join customers c on o.customer_id = c.customer_id where o.order_placed_date
+--> BETWEEN '2016-01-01' AND '2016-12-31' group by o.customer_id;
+Question 2
+Answer part1:
+
+--> select max(salary) from worker where salary<(select max(salary) from worker);
+
+Answer part2:
+
+--> select salary from worker order by salary desc limmit 5;
+
+Answer part3:
+
+--> select * from worker where mod(worker_id, 2) = 0;
+
+Answer part4:
+
+--> select department, count(*) count_of_dept from worker group by
+    department order by count_od_dept desc;
+
+Answer part5:
+
+--> select * from worker where salary in
+   (select * from worker group by salary having count(*) > 1);

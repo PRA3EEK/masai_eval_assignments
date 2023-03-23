@@ -1,0 +1,73 @@
+                                         Sb201 Assignment day1
+Question-1:
+When should one use Maven?
+Answer:
+Maven is a project management tool which helps to reduce the day to day tasks of developers
+. It is widely used to manage the java based projects. Maven is used to manage big projects 
+where keeping track of small tasks like and performing them is very difficult, like 
+downloading all the required dependencies jar files compiling the code manually etc. 
+all these tasks becomes hecktic when the project we are working on is very big so to overcome 
+this issue we use a build tool like Maven which will help us to do all these tasks easily.
+
+
+Qusetion-2:
+Explain the core concepts of Maven.
+Answer:
+Maven is based on the concept of project object model (POM) file. POM is an .XML file which 
+contains project resources like source code, test code and dependencies (external JARs) etc.
+Maven reads the POM file and executes the goals.
+Maven POM file contains the following elements:
+-project: it is the root element of POM file
+-ModelVersion: it is the sub element of project. It specifies the model version and it should
+ be set to 4.0.0.
+-group_Id: It is the sub element of project. It specifies the id for the project group.
+-artifactId: It is the sub element of project. It simplifies the id for the artifact(project)
+             an artifact is either produced or used by a project. Examples of artifacts produced
+             by Maven for a project include JARs, source and binary distributions and WARs.
+-version: It is the sub element of poject. It specifies the version of the artifact under given 
+          group. 
+
+
+
+Question-3:
+What are the basic properties of POM.xml file?
+Answer:
+A Project Object Model or POM is the fundamental unit of work in Maven. It is an XML file that contains
+information about the project and configuration details used by Maven to build the project. It contains 
+default values for most projects. Examples for this is the build directory, which is target; the source 
+directory, which is src/main/java; the test source directory, which is src/test/java; and so on. When 
+executing a task or goal, Maven looks for the POM in the current directory. It reads the POM, gets the 
+needed configuration information, then executes the goal.
+Some of the configuration that can be specified in the POM are the project dependencies, the plugins 
+or goals that can be executed, the build profiles, and so on. Other information such as the project 
+version, description, developers, mailing lists and such can also be specified.
+
+Question-4:
+What are the different phases of the default life cycle?
+Answer:
+A maven project will have these many steps in it's life cycle:-
+1. Velidate:- velidating the project by checking the directry structure is valid or not and
+   if it has the POM.xml file or not.
+2. compile:- in this step our source code will be compiled after downloading and all the required 
+   jar files in the classpath.
+3. test-compile:- all the test case code(if we have written) will be compiled in this step.
+4. test:- all the test code which was compiled in the step just before will be executed in this
+   step and we will know which test case is passed and which is failed.
+5. package:- our java code will be bundled into a jar file in this step.
+6. Install:- the resulted jar file will be stored in the local repo in our local system.
+7. deploy:- the application will be stored in the central repo and will be available on the web.
+8. clean:- all the files will be deleted and removed which were build in the build process.
+
+Question5:
+What are the different types of Maven repositories?
+Answer:
+there are three types of maven repositeries:-
+1. remote repositry:
+the remote repositry is present in your local system itself and maven will first search the 
+required dependencies of your project in local repo.
+2. central repositry:
+if the dependencies are not found in the local repo than maven will search them in the central 
+repo which is available on the web and created by the apache maven community itself.
+3. remote repositry:
+Maven remote repository is located on the web. Most of libraries can be missing from the central 
+repository such as JBoss library etc, so we need to define remote repository in pom.xml file.

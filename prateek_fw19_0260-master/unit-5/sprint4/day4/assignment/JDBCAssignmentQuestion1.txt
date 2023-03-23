@@ -1,0 +1,16 @@
+Q1/- What is JDBC, Write a note on JDBC driver software.
+A :
+Java Database Connectivity (JDBC) is an application programming interface (API) for the programming language Java, which defines how a client may access any kind 
+of tabular data, especially relational database.
+It acts as a middle layer interface between java applications and database.
+
+The JDBC classes are contained in the Java Package java.sql and javax.sql.
+JDBC helps you to write Java applications that manage these three programming activities:
+
+Connect to a data source, like a database.
+Send queries and update statements to the database
+Retrieve and process the results received from the database in answer to your query.
+
+
+JDBC drivers are client-side adapters (installed on the client machine, not on the server) that convert requests from Java programs to a protocol that the DBMS 
+can understand. There are 4 types of JDBC drivers:

@@ -1,0 +1,3 @@
+Q6) What if we call Java run() method directly instead start() method?
+A: If we call run() method directly than it will implement normaly without creating any another thread 
+   so your application will remain single threaded.

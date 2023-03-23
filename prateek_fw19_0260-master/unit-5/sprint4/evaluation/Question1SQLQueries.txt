@@ -1,0 +1,15 @@
+Write a SQL to enroll Amit in Java and Spring.
+:->  insert into student_course values (2,2);
+     insert into student_course values (2,1);
+Write a SQL to enroll Venkat in Java and React.
+:->  insert into student_course values (1,1);
+     insert into student_course values (1,4);
+Write a SQL to enroll Raj in Spring and Angular
+:->  insert into student_course values (3,2);
+     insert into student_course values (3,5);
+Write a SQL to enroll Suresh in Java, Hibernate and React.
+:->  insert into student_course values (5,1);
+     insert into student_course values (5,3);
+     insert into student_course values (5,4);
+Write a SQL to enroll Binay in React.
+:->   insert into student_course values (4,4);

@@ -1,0 +1,4 @@
+first Query :
+select s.name, c.cname from student s join course c join student_course sc on s.roll = sc.student_roll and c.cid = sc.student_courseID and c.cname = 'spring';
+second Query:
+select s.name, c.cname from student s join course c join student_course sc on s.roll = sc.student_roll and c.cid = sc.student_courseID and sc.student_roll = 1;

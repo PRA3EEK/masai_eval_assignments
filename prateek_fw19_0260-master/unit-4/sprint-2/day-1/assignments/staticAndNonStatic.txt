@@ -1,0 +1,6 @@
+Q1) Differentiate between static and non-static variables?
+Answer : variables that are defined as static in a java class those variables/methods will only load in your 
+         RAM while you compile your .java file and you can easily run them but if your variable/method is non 
+         Static then they will store in your hard drive and not in your RAM when you compile your .java file
+         , So you cannot run them by executing you .class file in order to execute them you have create object
+         of your respective class and have to call them. 

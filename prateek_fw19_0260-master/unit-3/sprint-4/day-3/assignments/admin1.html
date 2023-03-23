@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="add">
+        <input type="text" id="id" placeholder="Item id">
+        <input type="text" id="image" placeholder="Image URL">
+        <input type="text" id="title" placeholder="Title">
+        <input type="text" id="des" placeholder="Description">
+        <input type="text" id="price" placeholder="Price">
+        <input type="text" id="ratings" placeholder="Ratings">
+        <input type="submit" value="Add item to menu">
+    </form>
+    <form action="" id="rem">
+        <input type="text" id="reid" placeholder="Enter Id"><br>
+        <input type="submit" value="Delete item by id">
+    </form>
+    <form action="" id="upd">
+        <label for="">Id to update</label>
+        <input type="text" id="upid" placeholder="Enter Id"><br>
+        <label for="">Item info</label>
+        <input type="text" id="image1" placeholder="Image URL">
+        <input type="text" id="title1" placeholder="Title">
+        <input type="text" id="des1" placeholder="Description">
+        <input type="text" id="price1" placeholder="Price">
+        <input type="text" id="ratings1" placeholder="Ratings">
+        <input type="submit" value="Add item to menu">
+    </form>
+    <div id="items">
+       
+    </div>
+</body>
+
+</html>
+<script>
+    let logindata = JSON.parse(localStorage.getItem("logindata")) || null;
+   console.log(logindata)
+        let add = document.getElementById("add");
+    add.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if(logindata){
+            if(logindata.description.toLowerCase()=="admin"){
+                additem();
+            }else{
+              alert("You are not an Admin")
+            }
+        } else{
+        alert("You are not logged In. Please login before trying again!")
+    }
+      
+    })
+
+    // funtion additem;
+    let additem = () => {
+        console.log("prateek")
+        let item = {
+            id: document.getElementById("id").value,
+            image: document.getElementById("image").value,
+            title: document.getElementById("title").value,
+            description: document.getElementById("des").value,
+            price: +document.getElementById("price").value,
+            ratings: +document.getElementById("ratings").value,
+        }
+        fetch("http://127.0.0.1:3000/api/resdata", {
+            method: "POST",
+            body: JSON.stringify(item),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((res) => {
+            // console.log(res);
+            return res.json()
+        }).then((res)=>{
+            console.log(res);
+        }).catch((rej) => {
+            console.log(rej.message);
+        })
+    }
+
+
+
+    let form2 = document.getElementById("rem");
+    form2.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if(logindata){
+            if(logindata.description.toLowerCase()=="admin"){
+                remove();
+            }else{
+              alert("You are not an Admin")
+            }
+        } else{
+            alert("You are not logged In. Please login before trying again!")
+        }
+       
+    })
+
+    let remove = () => {
+        let id = document.getElementById("reid").value;
+        fetch(`http://127.0.0.1:3000/api/resdata/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((res) => {
+            console.log(res);
+        }).catch((rej) => {
+            console.log(rej.message)
+        })
+    }
+
+    let form3 = document.getElementById("upd");
+    form3.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if(logindata){
+            if(logindata.description.toLowerCase()=="admin"){
+                update();
+            }else{
+              alert("You are not an Admin")
+            }
+        }else{
+            alert("You are not logged In. Please login before trying again!")
+        }
+        
+    })
+
+    let update = () => {
+        let id = document.getElementById("upid").value;
+        fetch(`http://127.0.0.1:3000/api/resdata/${id}`, {
+            method: "PUT",
+            body: JSON.stringify({
+                image: document.getElementById("image1").value,
+                title: document.getElementById("title1").value,
+                description: document.getElementById("des1").value,
+                price: +document.getElementById("price1").value,
+                ratings: +document.getElementById("ratings1").value,
+            }),
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        }).then((res)=>{
+           console.log(res)
+        }).catch((rej)=>{
+           console.log(rej.message)
+        })
+    }
+   
+   
+    // append function 
+    let addtopage = () => {
+        fetch("http://127.0.0.1:3000/api/resdata").then((res)=>{
+          return res.json();
+        }).then((res)=>{
+           append(res);
+        console.log(res);
+        }).catch((rej)=>{
+            console.log(rej.message);
+        })
+    }
+   let append = (res) => {
+    res.forEach((el)=>{
+           let div = document.createElement("div");
+           let img = document.createElement("img");
+           img.src = el.image;
+           let h3 = document.createElement("h3");
+           h3.innerText = el.title;
+           let p1 = document.createElement("p");
+           p1.innerText = el.description;
+           let p2 = document.createElement("p");
+           p2.innerText = `$ ${el.price}`;
+           let p3 = document.createElement("p");
+           p3.innerText = `${el.ratings}/5`;
+           div.append(img,h3,p1,p2,p3);
+           document.getElementById("items").append(div);
+        })
+   };
+   addtopage();
+</script>

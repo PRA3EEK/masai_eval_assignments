@@ -1,0 +1,12 @@
+Q1Write a SQL query to get the total salary of employees, department-wise
+A:
+->  select sum(e.salary) totalSalary, d.dname from employee e join department d on e.deptid = d.did group by e.deptid;
+Q2: Write a SQL query to get all the employee details who enrolled in the Sales
+department.
+A:-> select e.empid, e.ename, e.address, e.mobile, e.salary, d.dname from employee e join department d on e.deptid = d.did and d.dname = 'sales';
+Q3: Write a SQL query to get the Department details for an employee based on the
+empId.
+A:->  select d.did, d.dname, d.location from employee e join department d on e.deptid = d.did and e.empid = 1;
+Q4: Write a SQL query to get the second highest salary paid employee from the
+Employee table
+A:->  select * from employee where salary = (select max(salary) from employee where salary < (select max(salary) from employee));

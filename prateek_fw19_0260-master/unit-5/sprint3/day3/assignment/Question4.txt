@@ -1,0 +1,58 @@
+Q4/ Explain about thread synchronization(inter-thread communication).
+A: Inter-thread communication is just the different threads in java when communicate to each other by given 
+   their current states to each other is inter thread communication.
+   inter thread communication in java is possible by the following methods:
+   wait()
+   notify()
+   notifyAll()
+   these all above methods belongs to object class;
+   example of interthread communication:->
+   
+   package day10Assignment;
+
+public class ThreadA extends Thread{
+  
+  int prod = 1;
+  @Override
+	public void run() {
+	  
+	  
+	 synchronized(this) {
+		  for(int i=1; i<=10 ; i++) {
+			  prod = prod * i;
+		  }
+		  System.out.println( Thread.currentThread().getName());
+
+		  this.notify();
+	 }
+	
+  }
+  
+}
+   
+   
+   //main thread
+   package day10Assignment;
+
+public class MainThread {
+  
+	public static void main(String[] args) throws InterruptedException {
+		ThreadA ta = new ThreadA();
+		
+
+		ta.start();
+	
+//		ta.join();
+		synchronized(ta) {
+			ta.wait();
+			System.out.println(ta.prod);
+		}
+	
+	}
+	
+}
+
+In the above example main thread need to print the product which is being calculated by the threadA so theadA 
+needs to be executed completely first so that main thread can print the correct output in that case we are using
+wait and notify method notify will notify the thread when the threadA has executed the method until then main
+thread will wait for the response of the threadA;

@@ -1,0 +1,9 @@
+Q1/- What are the limitations of EntityManager methods to perform CRUD operations with
+DB?
+Answer:
+
+- the EntityManger methods like persist(), merge(), remove() etc have some limitations like you cannnot retrieve multiple data rows from a table
+  from the database.
+- You can only retrieve data on the basis of the id only.
+- Bulk update and bulk delete from the database is not possible.
+- We cannot apply any conditions on the operations to the database.

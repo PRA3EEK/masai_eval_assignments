@@ -1,0 +1,25 @@
+Q1/- What is the Difference between the Statement and the PreparedStatement?
+A: 
+
+   If we use statement object to pass queries to our database it has some major drawbacks:-
+    
+   1: Complexities to concatenate the dynamic input into our query
+   2: If we take the help of statement object for passing the query to our database it is not a direct proccess
+      database engine will perform some functions in order to get our task done
+      . DB engine will first compile the query
+      . second it will generate a plan for the query
+      . third query optimization 
+      these above three steps will take place every time we try to execute the new query which will degrade 
+      the performance of our application.
+   3: SQL injection
+      this happens we use statement object to pass query to the database and we ask user to input the 
+      values for the desired output the suppose the user is some kind of hacker so he/she will directly pass
+      the sql query in the form string and that query will become the sub query for our query and will execute 
+      and may badly affect the data stored in the database.
+      
+   To overcome these above situations we use prepared statements instead of statement to pass our queries
+   prepared statement will tell the db engine to not execute the three process every time we pass a query and
+   will make our application faster and it also overcomes the situation of sql injection because PreparedStatement
+   class holds some method through which we concatenate the dynamic values to our query and it verifies the 
+   values before concatenating them to the string to it is a safe alternative. 
+ 

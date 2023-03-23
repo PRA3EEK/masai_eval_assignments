@@ -1,0 +1,57 @@
+Day-12 assignment
+Q2/A:
+desc deposite;
+desc branch;
+desc customer;
+desc borrow;
+Q4:
+select * from borrow where amount between 2000 and 3000;
+Q5:
+select * from deposit;
+Q6: 
+select cname, actno from deposit;
+Q7:
+select * from customer where city='NAGPUR';
+Q8:
+select cname from deposit where adate > '1995-11-17';
+Q9:
+select * from deposit where adate between '1995-12-1' and '1996-06-01';
+Q10:
+select * from deposit where cname like 'c%';
+Q11:
+select * from borrow where cname like '_u%';
+Q12:
+select * from deposit where bname = 'chandni' or bname = 'mgroad';
+Q13:
+select * from deposit where not (bname = 'chandni' or bname = 'mgroad');
+Q14:
+select * from deposit where amount>1000 order by cname asc;
+Q15:
+select * from deposit where amount>1000 order by cname desc;
+Q16:
+select * from borrow where cname like '__a%' or cname like '__d%';
+Q17:
+select * from borrow where amount between 2000 and 8000;
+Q18:
+select distinct * from deposit;
+Q19:
+update deposit set amount = amount + amount*0.1 where bname = 'vrce';
+Q20:
+update deposit set amount = amount + amount*0.1 where cname = 'anil' and bname = 'vrce';
+
+                              basic sql 2
+Q1:
+select distinct count(rollno) from student;
+Q2:
+select branch, count(*) from student where branch like 'e%' group by branch;
+Q3:
+Q4:
+ alter table student modify column name varchar(25);
+Q5:
+ delete from student where branch = 'etc';
+Q6:
+alter table student rename to student_information;
+Q7:
+delete from student_information;
+Q8:
+ drop table student_information;

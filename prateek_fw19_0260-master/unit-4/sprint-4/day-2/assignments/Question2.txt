@@ -1,0 +1,10 @@
+Q2) What is the difference between ArrayList and Array?
+Answer: Array in java has fixed size and we have to declare the size of the array while we create an Array obect.
+        like if we want the size of the array to be 10 then we have to declare it like int[] arr = new int[10];
+        and once we have created the array we cannot change it's size. Array in java can hold primitive datatypes
+        as well as objects.
+        While on the other hand ArrayList is like a dynamic array it can be defined without specifying its size.
+        the default size of an ArrayList is 10 and if we try to add 11th element to it, a new array list will be
+        created in the memory with the size equals to the sum of the previous ArrayList and the additional size 
+        will be defined by the formula (currentCapacity*3/2) +1 and that 11th element will be added to it.
+        In ArrayList we can only add Objects in it.
