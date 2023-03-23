@@ -1,0 +1,16 @@
+---select name from products;
+---select name, price from products;
+---select name from products where price<=200;
+---select name from products where price between 60 and 120;
+---select name, price*100 as price_in_cents from products;
+---select avg(price) from products;
+---select avg(price) from products where manufacturer=2;
+---select count(*) from products where price>=180;
+---select name, price from products where price>=180 order by price desc, name asc;
+---select * from products as p join manufacturers as m on p.manufacturer=m.code;
+---select p.name, p.price, m.name from products as p join manufacturers as m on m.code = p.manufacturer;
+---select avg(p.price), m.code from manufacturers as m join products as p on m.code = p.manufacturer group by p.manufacturer;
+---select avg(p.price), m.name from manufacturers as m join products as p on m.code = p.manufacturer group by p.manufacturer;
+---select m.name from manufacturers as m join products as p on m.code = p.manufacturer group by p.manufacturer having avg(p.price)>=150;
+---select name, price from products where price = (select min(price) from products);
+---select m.name, p.name, max(p.price) from manufacturers as m join products as p on p.manufacturer = m.code group by p.manufacturer;
